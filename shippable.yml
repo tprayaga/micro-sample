@@ -12,7 +12,7 @@ build:
    pre_ci: 
        - cd micro-api && docker build -t tprayaga/micro-api .
    pre_ci_boot:
-        image_name: tprayaga@gmail.com/micro-api
+        image_name: tprayaga/micro-api
         image_tag: latest
         pull: false
 
@@ -25,10 +25,10 @@ build:
    on_success:
        - cd ..
        - cd micro-www && docker build -t tprayaga/micro-www .
-       - docker tag -f tprayaga@gmail.com/micro-www:latest tprayaga/micro-www:$BRANCH.$BUILD_NUMBER 
-       - docker tag -f tprayaga@gmail.com/micro-api:latest tprayaga/micro-api:$BRANCH.$BUILD_NUMBER
-       - docker push tprayaga@gmail.com/micro-api:$BRANCH.$BUILD_NUMBER
-       - docker push tprayaga@gmail.com/micro-www:$BRANCH.$BUILD_NUMBER
+       - docker tag -f tprayaga/micro-www:latest tprayaga/micro-www:$BRANCH.$BUILD_NUMBER 
+       - docker tag -f tprayaga/micro-api:latest tprayaga/micro-api:$BRANCH.$BUILD_NUMBER
+       - docker push tprayaga/micro-api:$BRANCH.$BUILD_NUMBER
+       - docker push tprayaga/micro-www:$BRANCH.$BUILD_NUMBER
 
 integrations:
     hub:
