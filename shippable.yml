@@ -10,7 +10,7 @@ env:
 
 build:
    pre_ci: 
-       - cd micro-api && docker build -t tprayaga@gmail.com/micro-api .
+       - cd micro-api && docker build -t tprayaga/micro-api .
    pre_ci_boot:
         image_name: tprayaga@gmail.com/micro-api
         image_tag: latest
@@ -24,9 +24,9 @@ build:
        - grunt
    on_success:
        - cd ..
-       - cd micro-www && docker build -t tprayaga@gmail.com/micro-www .
-       - docker tag -f tprayaga@gmail.com/micro-www:latest tprayaga@gmail.com/micro-www:$BRANCH.$BUILD_NUMBER 
-       - docker tag -f tprayaga@gmail.com/micro-api:latest tprayaga@gmail.com/micro-api:$BRANCH.$BUILD_NUMBER
+       - cd micro-www && docker build -t tprayaga/micro-www .
+       - docker tag -f tprayaga@gmail.com/micro-www:latest tprayaga/micro-www:$BRANCH.$BUILD_NUMBER 
+       - docker tag -f tprayaga@gmail.com/micro-api:latest tprayaga/micro-api:$BRANCH.$BUILD_NUMBER
        - docker push tprayaga@gmail.com/micro-api:$BRANCH.$BUILD_NUMBER
        - docker push tprayaga@gmail.com/micro-www:$BRANCH.$BUILD_NUMBER
 
